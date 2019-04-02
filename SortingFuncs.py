@@ -22,6 +22,7 @@ def SelectionSort(numbers):
       numbers[index_smallest] = temp
    return numbers
 
+# TODO fix sorting 
 def InsertionSort(numbers):
     
     for i in range(len(numbers)-1): 
@@ -34,6 +35,7 @@ def InsertionSort(numbers):
             j -= 1
     return numbers
 
+# TODO fix sorting 
 def gap_InsertionSort(nlist,start,gap):
     for i in range(start+gap,len(nlist),gap):
 
@@ -46,7 +48,7 @@ def gap_InsertionSort(nlist,start,gap):
 
         nlist[position]=current_value
         
-
+# TODO fix sorting 
 def ShellSort(alist):
     sublistcount = len(alist)//2
     while sublistcount > 0:
@@ -75,7 +77,7 @@ def partition(arr,low,high):
     arr[i+1],arr[high] = arr[high],arr[i+1] 
     return ( i+1 ) 
   
-
+# TODO fix sorting 
 def QuickSort(arr,low,high): 
     if low < high: 
   

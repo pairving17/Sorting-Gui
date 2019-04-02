@@ -12,7 +12,18 @@ Created on Fri Feb  1 13:04:23 2019
 
 from tkinter import *
 from SortingFuncs import *
+from backEndFunctions import*
 
+master = Tk()
+global theList
+
+
+master.geometry(  )
+Label(master, text="Enter Data").grid(row=0,column=0)
+
+entryBar = Entry(master)
+entryBar.grid(row=1,column=0)
+Button(master, text = "Enter",command = enter).grid(row = 1,column=1, sticky = W)
 
 OPTIONS = [
 "Selection Sort",
@@ -22,55 +33,76 @@ OPTIONS = [
 "Merge Sort"
 ] #etc
 
-master = Tk()
-
-
-my_list = [line.split(' ') for line in open("DataDoc.txt")]
-
-theList= my_list[0]
-
-
 variable = StringVar(master)
 variable.set(OPTIONS[0]) # default value
 
-w = OptionMenu(master, variable, *OPTIONS)
-w.pack()
+selectSortBar = OptionMenu(master, variable, *OPTIONS)
+selectSortBar.grid(row=2,column = 0)
 
-    
+#display the sorted values in theList
+labelStr = StringVar()
+labelBar = Label(master, textvariable=labelStr)  #display the sorted values in theList
+labelBar.grid(row=3, column = 0)
 
+
+theList = []
+
+
+#TODO write description for this func
+def enter():
+    global theList
+    global theDict
+    theList = convertStr(entryBar.get())
+    i = 0
+    for i in range(len(theList)):
+        append(theList[i])
+
+#TODO write description for this func
 def ok():
-    #print ("value is:" + variable.get()) 
+    
+    global theList
+    
     if variable.get() == OPTIONS[0]:
-        print(variable.get()+"WORKING")
+        
         print(theList)
         print("\n")
         print(SelectionSort(theList))
-        
+        labelStr.set(theList)
         
     if variable.get() == OPTIONS[1]:
-        print(variable.get()+"WORKING")
+       
         print(theList)
         print("\n")
         print(InsertionSort(theList))
-        
+        labelStr.set(theList)
         
     if variable.get() == OPTIONS[2]:
-        print(variable.get()+"WORKING")
+        
         print(theList)
         print("\n")
         print(RadixSort(theList,))
-        
+        labelStr.set(theList)
+
     if variable.get() == OPTIONS[3]:
-        print(variable.get()+"WORKING")
+        
         print(theList)
         print("\n")
         print(ShellSort(theList))  
-    
-    
+        labelStr.set(theList)
+#        
+#     if variable.get() == OPTIONS[4]:
+#        print(variable.get()+"WORKING")
+#        print(theList)
+#        print("\n")
+#        print(MergeSort(theList))  
+#        labelStr.set(theList)
 
+    
 
 
 button = Button(master, text="OK", command=ok)
-button.pack()
-
+button.grid(row=2,column =1)
+master.geometry("500x500")
+#master.resizable(0, 0) 
+print(theDict)
 mainloop()
