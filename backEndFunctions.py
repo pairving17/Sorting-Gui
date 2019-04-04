@@ -9,40 +9,40 @@ from SortingFuncs import *
 
 
 
-class Node:
-    def __init__(self, dataval=None):
-        self.dataval = dataval
-        self.nextval = None
-        
-
-class SLinkedList(element,node):
-    def __init__(self):
-        self.headval = None
-    
-
-    def listprint(self):
-        printval = self.headval
-        while printval is not None:
-            print (printval.dataval)
-            printval = printval.nextval
-    def append(v):
-        global intlist
-        intlist += v
-
-intlist = SLinkedList()
-ninelinkedList = intlist
+#class Node:
+#    def __init__(self, dataval=None):
+#        self.dataval = dataval
+#        self.nextval = None
+#        
+#
+#class SLinkedList(element,node):
+#    def __init__(self):
+#        self.headval = None
+#    
+#
+#    def listprint(self):
+#        printval = self.headval
+#        while printval is not None:
+#            print (printval.dataval)
+#            printval = printval.nextval
+#    def append(v):
+#        global intlist
+#        intlist += v
+#
+#intlist = SLinkedList()
+#ninelinkedList = intlist
 
 theDict = {             #item % 10
-       0:SLinkedList(element,node),
-       1:SLinkedList(element,node),
-       2:SLinkedList(element,node),
-       3:SLinkedList(element,node),
-       4:SLinkedList(element,node),
-       5:SLinkedList(element,node),
-       6:SLinkedList(element,node),
-       7:SLinkedList(element,node),
-       8:SLinkedList(element,node),
-       9: SLinkedList(element,node)
+       0:[],
+       1:[],
+       2:[],
+       3:[],
+       4:[],
+       5:[],
+       6:[],
+       7:[],
+       8:[],
+       9:[]
        
        }
 
@@ -60,6 +60,7 @@ def append(v):
     l = theDict.get(v % 10) # init list l to dic.get("21") 
     l += [v]            # adds 101 11 21 to the end of list l
     theDict.update({v%10:l})   # updates dict dic
+#    print(theDict,"\n")
     
 
 def convertStr(vari):
@@ -82,5 +83,3 @@ def convertStr(vari):
     
     return intlist
 
-theDict.append(9)
-print(theDict)

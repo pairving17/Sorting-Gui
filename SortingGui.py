@@ -30,7 +30,8 @@ OPTIONS = [
 "Insertion Sort",
 "Radix Sort",
 "Shell Sort",
-"Merge Sort"
+"Merge Sort",
+"Bubble Sort"
 ] #etc
 
 variable = StringVar(master)
@@ -39,10 +40,13 @@ variable.set(OPTIONS[0]) # default value
 selectSortBar = OptionMenu(master, variable, *OPTIONS)
 selectSortBar.grid(row=2,column = 0)
 
+#lable for labelBar
+Label(master, text="Sorted: ").grid(row=3,column=0)
+
 #display the sorted values in theList
 labelStr = StringVar()
 labelBar = Label(master, textvariable=labelStr)  #display the sorted values in theList
-labelBar.grid(row=3, column = 0)
+labelBar.grid(row=4, column = 0)
 
 
 theList = []
@@ -89,13 +93,13 @@ def ok():
         print("\n")
         print(ShellSort(theList))  
         labelStr.set(theList)
-#        
-#     if variable.get() == OPTIONS[4]:
-#        print(variable.get()+"WORKING")
-#        print(theList)
-#        print("\n")
-#        print(MergeSort(theList))  
-#        labelStr.set(theList)
+        
+    if variable.get() == OPTIONS[4]:
+        print(variable.get()+"WORKING")
+        print(theList)
+        print("\n")
+        print(BubbleSort(theList))  
+        labelStr.set(theList)
 
     
 
@@ -103,6 +107,4 @@ def ok():
 button = Button(master, text="OK", command=ok)
 button.grid(row=2,column =1)
 master.geometry("500x500")
-#master.resizable(0, 0) 
-print(theDict)
 mainloop()
